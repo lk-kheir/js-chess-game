@@ -19,10 +19,10 @@ export default class Board{
              new Pawn(new Position('f' , 2) , 'W'),
              new Pawn(new Position('g' , 2) , 'W'),
              new Pawn(new Position('h' , 2) , 'W')],
-            [     ,      ,      ,      ,     ,      ,      ,      ,      ],
-            [     ,      ,      ,      ,     ,      ,      ,      ,      ],
-            [     ,      ,      ,      ,     ,      ,      ,      ,      ],
-            [     ,      ,      ,      ,     ,      ,      ,      ,      ],
+            [ '',    ''  ,    ''  ,     '' ,     '',     '' ,    ''  ,   ''],
+            [  '' ,  ''    ,  ''    ,  ''    , ''    ,    ''  ,  ''    , ''],
+            [  '' ,  ''    ,  ''    ,   ''   ,  ''   ,  ''    ,  ''    ,  ''],
+            [  ''  ,  ''    , ''     ,   ''   ,  ''   ,  ''    , ''     , ''],
             [new Pawn(new Position('a' , 7) , 'B'),
             new Pawn(new Position('b' , 7) , 'B'),
             new Pawn(new Position('c' , 7) , 'B') ,
@@ -46,3 +46,4 @@ export default class Board{
         console.log(this.board)
     };
 }
+
