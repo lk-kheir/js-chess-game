@@ -5,6 +5,15 @@ export  class Position {
     }
 }
 
+export class Square {
+    constructor(peice) {
+        this.peice = peice;
+    }
+}
+ 
+export class Empty  {
+
+}
 
 export  class Pawn {
     constructor(position , peiceColor) {
