@@ -4,6 +4,45 @@
    box-sizing: border-box; 
 }
 
+body {
+    background-color: #EEEEEE;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.input-moves {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.input-moves input {
+    width: 80%;
+    height: 40px;
+    border: none;
+    background-color: bisque;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.input-moves  .move-now {
+    background-color: #0096FF ;
+    color: white;
+}
+
+.input-moves input:focus::placeholder {
+    color: transparent;
+  }
+
 #chess-grid {
     background-color: bisque;
     margin: 50px auto;

@@ -9,87 +9,96 @@
     <script defer type="module" src="./app.js"></script>
 </head>
 <body>
-    <div id="chess-grid">
-        <div class="rank rank-8">
-            <div class="cell" data-peice="Rook">R</div>
-            <div class="cell" data-peice="Bishop">Kn</div>
-            <div class="cell" data-peice="Knight">B</div>
-            <div class="cell" data-peice="Queen">Q</div>
-            <div class="cell" data-peice="King">K</div>
-            <div class="cell" data-peice="Bishop">B</div>
-            <div class="cell" data-peice="Knight">Kn</div>
-            <div class="cell" data-peice="Rook">R</div>
+    <div class="container">
+        <div class="input-moves">
+            <input class="peice-type" type="text" placeholder="type the peice you want to move">
+            <input class="to-rank" type="number" placeholder="type the rank">
+            <input class="to-file" type="text" placeholder="type the file">
+            <input class="move-now" type="submit">
         </div>
-        <div class="rank rank-7">
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
+        <div id="chess-grid">
+            <div class="rank rank-8">
+                <div class="cell" data-peice="Rook">R</div>
+                <div class="cell" data-peice="Bishop">Kn</div>
+                <div class="cell" data-peice="Knight">B</div>
+                <div class="cell" data-peice="Queen">Q</div>
+                <div class="cell" data-peice="King">K</div>
+                <div class="cell" data-peice="Bishop">B</div>
+                <div class="cell" data-peice="Knight">Kn</div>
+                <div class="cell" data-peice="Rook">R</div>
+            </div>
+            <div class="rank rank-7">
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+            </div>
+            <div class="rank rank-6">
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+            </div>
+            <div class="rank rank-5">
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+            </div>
+            <div class="rank rank-4">
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+            </div>
+            <div class="rank rank-3">
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+                <div class="cell" data-peice="Empty"></div>
+            </div>    
+            <div class="rank rank-2">
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell" data-peice="Pawn">P</div>
+            </div>
+            <div class="rank rank-1">
+                <div class="cell" data-peice="Rook">R</div>
+                <div class="cell" data-peice="Bishop">Kn</div>
+                <div class="cell" data-peice="Knight">B</div>
+                <div class="cell" data-peice="Queen">Q</div>
+                <div class="cell" data-peice="King">K</div>
+                <div class="cell" data-peice="Bishop">B</div>
+                <div class="cell" data-peice="Knight">Kn</div>
+                <div class="cell" data-peice="Rook">R</div>
+            </div>
         </div>
-        <div class="rank rank-6">
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-        </div>
-        <div class="rank rank-5">
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-        </div>
-        <div class="rank rank-4">
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-        </div>
-        <div class="rank rank-3">
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-            <div class="cell" data-peice="Empty"></div>
-        </div>    
-        <div class="rank rank-2">
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-            <div class="cell" data-peice="Pawn">P</div>
-        </div>
-        <div class="rank rank-1">
-            <div class="cell" data-peice="Rook">R</div>
-            <div class="cell" data-peice="Bishop">Kn</div>
-            <div class="cell" data-peice="Knight">B</div>
-            <div class="cell" data-peice="Queen">Q</div>
-            <div class="cell" data-peice="King">K</div>
-            <div class="cell" data-peice="Bishop">B</div>
-            <div class="cell" data-peice="Knight">Kn</div>
-            <div class="cell" data-peice="Rook">R</div>
-        </div>
+       
     </div>
 </body>
 </html>
