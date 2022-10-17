@@ -72,31 +72,33 @@ export default class Board{
     } 
     pawnMove(moveDetails) {
 
-        // first we need to make sure that the next squre is empty 
-        // getting the current position
-        // of course we need to think about the case where the pawn reaches the last rank;
+        // first we need to make sure that the next squre is empty (not yet implemented) 
+        // of course we need to think about the case where the pawn reaches the last rank
 
-        moveDetails.location.file = ALPHABTIC.indexOf(moveDetails.location.file);
-        moveDetails.destination.file = ALPHABTIC.indexOf(moveDetails.destination.file);
+        let {destination , location} = moveDetails;
+        console.log(destination , location)
+
+        // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
+        location.file = ALPHABTIC.indexOf(location.file);
+        destination.file = ALPHABTIC.indexOf(destination.file);
         // this conditiion means we move the pawn one squre forward
-        if (Math.abs(moveDetails.destination.rank - moveDetails.location.rank) === 1) {
-            console.log('one step please');
-            let tempSquare = this.board[moveDetails.destination.rank][moveDetails.destination.file]
+        if (Math.abs(destination.rank - location.rank) === 1) {
+            let tempSquare = this.board[destination.rank][destination.file]
             // we update the distination squre
-            this.board[moveDetails.destination.rank][moveDetails.destination.file] = this.board[moveDetails.location.rank][moveDetails.location.file]
+            this.board[destination.rank][destination.file] = this.board[location.rank][location.file]
             // we update the lhe location to Empty;
-            this.board[moveDetails.location.rank][moveDetails.location.file] = tempSquare;
+            this.board[location.rank][location.file] = tempSquare;
             this.updateTheDOMBoard(moveDetails);
         } 
         // the case if the pawn is goin two moves for the first time
-        else if (Math.abs(moveDetails.destination.rank - moveDetails.location.rank) === 2 && moveDetails.location.rank == 1) {
-            console.log('two step please');
+        else if (Math.abs(destination.rank - location.rank) === 2 &&
+                 location.rank === 1 || location.rank === 6) {
 
-             let tempSquare = this.board[moveDetails.destination.rank][moveDetails.destination.file]
+             let tempSquare = this.board[destination.rank][destination.file]
             // we update the distination squre
-            this.board[moveDetails.destination.rank][moveDetails.destination.file] = this.board[moveDetails.location.rank][moveDetails.location.file]
+            this.board[destination.rank][destination.file] = this.board[location.rank][location.file]
             // we update the lhe location to Empty;
-            this.board[moveDetails.location.rank][moveDetails.location.file] = tempSquare;
+            this.board[location.rank][location.file] = tempSquare;
             this.updateTheDOMBoard(moveDetails);
 
         } 
