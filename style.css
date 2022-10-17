@@ -69,3 +69,12 @@ body {
     font-size: xx-large;
 }
 
+.white-square {
+
+}
+
+.black-square {
+    background-color: black;
+    color: white;
+
+}

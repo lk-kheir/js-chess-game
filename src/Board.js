@@ -68,40 +68,39 @@ export default class Board{
             new Square(new Knight(new Position('g', 8) , 'B'), false),
             new Square(new Rook(new Position('h', 8) , 'B'), false)],
         ]
-    
+        
+        this.playingNow = 'W';
+        this.PlayingNext = "B"
+        this.listPinnedPeices = [];
+
     } 
     pawnMove(moveDetails) {
 
-        // first we need to make sure that the next squre is empty (not yet implemented) 
-        // of course we need to think about the case where the pawn reaches the last rank
+        //  I need to make sure that the next square is empty (not yet implemented) 
+        //  I need to think about the case where the pawn reaches the last rank (not yet implemented)
+        //  I need to make sure that the pawn in not pinned due to a pin (not yet implementd)
+        //  I need to make sure that pawn can take other pawn or peices
 
         let {destination , location} = moveDetails;
-        console.log(destination , location)
 
         // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
         location.file = ALPHABTIC.indexOf(location.file);
         destination.file = ALPHABTIC.indexOf(destination.file);
         // this conditiion means we move the pawn one squre forward
         if (Math.abs(destination.rank - location.rank) === 1) {
-            let tempSquare = this.board[destination.rank][destination.file]
-            // we update the distination squre
-            this.board[destination.rank][destination.file] = this.board[location.rank][location.file]
-            // we update the lhe location to Empty;
-            this.board[location.rank][location.file] = tempSquare;
+            this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);
         } 
         // the case if the pawn is goin two moves for the first time
-        else if (Math.abs(destination.rank - location.rank) === 2 &&
-                 location.rank === 1 || location.rank === 6) {
+        else if ((Math.abs(destination.rank - location.rank) === 2) &&
+                 (location.rank === 1 || location.rank === 6)) {
 
-             let tempSquare = this.board[destination.rank][destination.file]
-            // we update the distination squre
-            this.board[destination.rank][destination.file] = this.board[location.rank][location.file]
-            // we update the lhe location to Empty;
-            this.board[location.rank][location.file] = tempSquare;
+            this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);
 
-        } 
+        } else {
+            alert("invalid move")
+        }
     }
 
 
@@ -112,6 +111,14 @@ export default class Board{
     updateTheDOMBoard(moveDetails) {
         document.querySelectorAll(`.rank-${moveDetails.location.rank + 1} .cell`)[moveDetails.location.file].innerHTML = ""
         document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].innerHTML = "P"
+
+    }
+    swapSquares(location , destination) {
+        let tempSquare = this.board[destination.rank][destination.file]
+        // we update the distination squre
+        this.board[destination.rank][destination.file] = this.board[location.rank][location.file]
+        // we update the lhe location to Empty;
+        this.board[location.rank][location.file] = tempSquare;
 
     }
 }

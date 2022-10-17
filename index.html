@@ -10,6 +10,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="who's__turn">
+            <span>White to Play</span>
+        </div>
         <div class="input-moves">
             <input class="peice-type" type="text" placeholder="type the peice you want to move">
             <h2>Location</h2>
@@ -25,84 +28,86 @@
         </div>
         <div id="chess-grid">
             <div class="rank rank-8">
-                <div class="cell" data-peice="Rook">R</div>
-                <div class="cell" data-peice="Bishop">Kn</div>
-                <div class="cell" data-peice="Knight">B</div>
-                <div class="cell" data-peice="Queen">Q</div>
-                <div class="cell" data-peice="King">K</div>
-                <div class="cell" data-peice="Bishop">B</div>
-                <div class="cell" data-peice="Knight">Kn</div>
-                <div class="cell" data-peice="Rook">R</div>
+                <div class="cell white-square" data-peice="Rook">R</div>
+                <div class="cell black-square" data-peice="Knight">Kn</div>
+                <div class="cell white-square" data-peice="Bishop">B</div>
+                <div class="cell black-square" data-peice="Queen">Q</div>
+                <div class="cell white-square" data-peice="King">K</div>
+                <div class="cell black-square" data-peice="Bishop">B</div>
+                <div class="cell white-square" data-peice="Knight">Kn</div>
+                <div class="cell black-square" data-peice="Rook">R</div>
             </div>
             <div class="rank rank-7">
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
+                
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
             </div>
             <div class="rank rank-6">
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
             </div>
             <div class="rank rank-5">
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
             </div>
             <div class="rank rank-4">
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
+                
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
             </div>
             <div class="rank rank-3">
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
-                <div class="cell" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
+                <div class="cell black-square" data-peice="Empty"></div>
+                <div class="cell white-square" data-peice="Empty"></div>
             </div>    
             <div class="rank rank-2">
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
-                <div class="cell" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
+                <div class="cell white-square" data-peice="Pawn">P</div>
+                <div class="cell black-square" data-peice="Pawn">P</div>
             </div>
             <div class="rank rank-1">
-                <div class="cell" data-peice="Rook">R</div>
-                <div class="cell" data-peice="Bishop">Kn</div>
-                <div class="cell" data-peice="Knight">B</div>
-                <div class="cell" data-peice="Queen">Q</div>
-                <div class="cell" data-peice="King">K</div>
-                <div class="cell" data-peice="Bishop">B</div>
-                <div class="cell" data-peice="Knight">Kn</div>
-                <div class="cell" data-peice="Rook">R</div>
+                <div class="cell black-square" data-peice="Rook">R</div>
+                <div class="cell white-square" data-peice="Bishop">Kn</div>
+                <div class="cell black-square" data-peice="Knight">B</div>
+                <div class="cell white-square" data-peice="Queen">Q</div>
+                <div class="cell black-square" data-peice="King">K</div>
+                <div class="cell white-square" data-peice="Bishop">B</div>
+                <div class="cell black-square" data-peice="Knight">Kn</div>
+                <div class="cell white-square" data-peice="Rook">R</div>
             </div>
         </div>
        
