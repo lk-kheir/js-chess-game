@@ -13,6 +13,20 @@ body {
     justify-content: center;
 }
 
+.whos_turn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 120px;
+    width: 120px;
+    font-size: 4rem;
+    border: 5px solid black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .input-moves {
     width: 30%;
     display: flex;
@@ -74,7 +88,7 @@ body {
 }
 
 .black-square {
-    background-color: black;
+    background-color: #002;
     color: white;
 
 }

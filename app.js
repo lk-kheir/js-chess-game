@@ -23,6 +23,7 @@ function getAllMoveDetails() {
     }
 }
 
+
 submitMoveInput.addEventListener("click" , () => {
     let moveDetails = getAllMoveDetails();
     console.log(moveDetails);
@@ -30,9 +31,10 @@ submitMoveInput.addEventListener("click" , () => {
     if (moveDetails.peiceType === 'P') {
         brd.pawnMove(moveDetails);
         brd.showBoard();
-    }else if (peice == "Kn") {
+    }  else if (peice == "Kn") {
         
     }
+
 });
     
 

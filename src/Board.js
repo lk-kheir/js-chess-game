@@ -70,7 +70,6 @@ export default class Board{
         ]
         
         this.playingNow = 'W';
-        this.PlayingNext = "B"
         this.listPinnedPeices = [];
 
     } 
@@ -86,10 +85,12 @@ export default class Board{
         // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
         location.file = ALPHABTIC.indexOf(location.file);
         destination.file = ALPHABTIC.indexOf(destination.file);
-        // this conditiion means we move the pawn one squre forward
+        // this condition means we move the pawn one squre forward
         if (Math.abs(destination.rank - location.rank) === 1) {
             this.swapSquares(location, destination)
-            this.updateTheDOMBoard(moveDetails);
+            this.updateTheDOMBoard(moveDetails);;
+            this.updateTurns();
+            
         } 
         // the case if the pawn is goin two moves for the first time
         else if ((Math.abs(destination.rank - location.rank) === 2) &&
@@ -97,6 +98,7 @@ export default class Board{
 
             this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);
+            this.updateTurns();
 
         } else {
             alert("invalid move")
@@ -120,6 +122,18 @@ export default class Board{
         // we update the lhe location to Empty;
         this.board[location.rank][location.file] = tempSquare;
 
+    }
+
+    updateTurns() {
+        if (this.playingNow === "W") {
+            this.playingNow = "B";
+            document.querySelector(".whos_turn").innerHTML = `B`;
+        }    
+        else{
+            this.playingNow = "W";
+            document.querySelector(".whos_turn").innerHTML = `W`;
+        
+        }
     }
 }
 
