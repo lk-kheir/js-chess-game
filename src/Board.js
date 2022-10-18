@@ -79,6 +79,7 @@ export default class Board{
         //  I need to think about the case where the pawn reaches the last rank (not yet implemented)
         //  I need to make sure that the pawn in not pinned due to a pin (not yet implementd)
         //  I need to make sure that pawn can take other pawn or peices
+        //  all of this must be seperated in a diffrent class I gues
 
         let {destination , location} = moveDetails;
 
@@ -105,14 +106,62 @@ export default class Board{
         }
     }
 
+    knightMove(moveDetails) {
+        let {destination , location} = moveDetails;
+        // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
+        location.file = ALPHABTIC.indexOf(location.file);
+        destination.file = ALPHABTIC.indexOf(destination.file);
+        this.swapSquares(location , destination);
+        this.updateTheDOMBoard(moveDetails);
+    }
 
-    showBoard(){ 
+    bishopMove(moveDetails) {
+         let {destination , location} = moveDetails;
+        // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
+        location.file = ALPHABTIC.indexOf(location.file);
+        destination.file = ALPHABTIC.indexOf(destination.file);
+        this.swapSquares(location , destination);
+        this.updateTheDOMBoard(moveDetails);
+
+    }
+    
+    kingMove(moveDetails) {
+         let {destination , location} = moveDetails;
+        // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
+        location.file = ALPHABTIC.indexOf(location.file);
+        destination.file = ALPHABTIC.indexOf(destination.file);
+        this.swapSquares(location , destination);
+        this.updateTheDOMBoard(moveDetails);
+
+    }
+
+    queenMove(moveDetails) {
+        let {destination , location} = moveDetails;
+        // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
+        location.file = ALPHABTIC.indexOf(location.file);
+        destination.file = ALPHABTIC.indexOf(destination.file);
+        this.swapSquares(location , destination);
+        this.updateTheDOMBoard(moveDetails);
+
+    }
+
+    rookMove (moveDetails) {
+        let {destination , location} = moveDetails;
+        // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
+        location.file = ALPHABTIC.indexOf(location.file);
+        destination.file = ALPHABTIC.indexOf(destination.file);
+        this.swapSquares(location , destination);
+        this.updateTheDOMBoard(moveDetails);
+
+    }
+
+    showBoard(moveDetails){ 
         console.log(this.board)
     };
 
     updateTheDOMBoard(moveDetails) {
         document.querySelectorAll(`.rank-${moveDetails.location.rank + 1} .cell`)[moveDetails.location.file].innerHTML = ""
-        document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].innerHTML = "P"
+        document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].innerHTML =  `${moveDetails.peiceType}`
 
     }
     swapSquares(location , destination) {

@@ -30,11 +30,19 @@ submitMoveInput.addEventListener("click" , () => {
     // if the selected Peice is a pawn  ...
     if (moveDetails.peiceType === 'P') {
         brd.pawnMove(moveDetails);
-        brd.showBoard();
-    }  else if (peice == "Kn") {
-        
-    }
+    }  else if (moveDetails.peiceType === "Kn") {
+       brd.knightMove(moveDetails); 
+    } else if (moveDetails.peiceType === "B") {
+        brd.bishopMove(moveDetails); 
 
+    } else if (moveDetails.peiceType === "K") {
+        brd.kingMove(moveDetails);
+    } else if (moveDetails.peiceType === "Q") {
+        brd.queenMove(moveDetails);
+    } else {
+        brd.rookMove(moveDetails);
+    }
+    brd.showBoard();
 });
     
 
