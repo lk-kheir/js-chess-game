@@ -1,4 +1,5 @@
 import { Rook , Bishop , Pawn ,  Queen , King , Knight , Position , Square  , Empty} from "./Peices.js"
+import Validator from "./Validator.js";
 const ALPHABTIC = "abcdefgh";
 export default class Board{
     constructor() {
@@ -71,6 +72,9 @@ export default class Board{
         
         this.playingNow = 'W';
         this.listPinnedPeices = [];
+        this.kingInCheck = false;
+        this.kingInStaleMate = false;
+        this.kingInCheckMate = false;
 
     } 
     pawnMove(moveDetails) {
@@ -86,8 +90,11 @@ export default class Board{
         // moveDetails passes the location.file and destination.file using letters so transforme them into numbers
         location.file = ALPHABTIC.indexOf(location.file);
         destination.file = ALPHABTIC.indexOf(destination.file);
+
+        let validation = Validator.pawnMovesValidator(this, moveDetails)
+        console.log(validation);
         // this condition means we move the pawn one squre forward
-        if (Math.abs(destination.rank - location.rank) === 1) {
+        if (Math.abs(destination.rank - location.rank) === 1 && validation) {
             this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);;
             this.updateTurns();
@@ -95,7 +102,8 @@ export default class Board{
         } 
         // the case if the pawn is goin two moves for the first time
         else if ((Math.abs(destination.rank - location.rank) === 2) &&
-                 (location.rank === 1 || location.rank === 6)) {
+                 (location.rank === 1 || location.rank === 6)) 
+                 {
 
             this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);

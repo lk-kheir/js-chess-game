@@ -80,15 +80,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: xx-large;
+    font-size: xxx-large;
 }
 
 .white-square {
-
+    background-color: #BEB6B4;
 }
 
 .black-square {
-    background-color: #002;
-    color: white;
+    background-color: #85623C;
+}
 
+.dark-peice {
+    color: #000000;
+}
+.white-peice {
+    color: #FFFFFF;
 }
