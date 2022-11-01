@@ -1,0 +1,2 @@
+// after every move we update the position of the peice inside the square
+// update the DOM for every capture

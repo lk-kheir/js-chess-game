@@ -71,7 +71,12 @@ export default class Board{
         ]
         
         this.playingNow = 'W';
-        this.listPinnedPeices = [];
+        this.listOfPinnedWhitePeices = [];
+        this.listOfPinnedBlackPeices = [];
+
+        this.listOftakenWhitePieces = [];
+        this.listOftakenBlackPieces = [];
+
         this.kingInCheck = false;
         this.kingInStaleMate = false;
         this.kingInCheckMate = false;
@@ -91,9 +96,19 @@ export default class Board{
         location.file = ALPHABTIC.indexOf(location.file);
         destination.file = ALPHABTIC.indexOf(destination.file);
 
-        let validation = Validator.pawnMovesValidator(this, moveDetails)
+        let validation = Validator.pawnMovesValidator(this, moveDetails) // boolean
         console.log(validation);
-        // this condition means we move the pawn one squre forward
+
+        // is it just a move or move with capture
+        if(!this.board[destination.file][destination.rank].empty) {
+            console.log("the square you want to go is not empty");
+            this.pawnCapture(moveDetails);
+            this.updateTheDOMBoard();
+            this.updateTurns();
+            return;
+        }
+
+        // we move the pawn one squre forward
         if (Math.abs(destination.rank - location.rank) === 1 && validation) {
             this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);;
@@ -173,6 +188,7 @@ export default class Board{
 
     }
     swapSquares(location , destination) {
+
         let tempSquare = this.board[destination.rank][destination.file]
         // we update the distination squre
         this.board[destination.rank][destination.file] = this.board[location.rank][location.file]
@@ -191,6 +207,20 @@ export default class Board{
             document.querySelector(".whos_turn").innerHTML = `W`;
         
         }
+    }
+
+    pawnCapture(moveDetails) {
+        // we add the peice taken to the array
+        if(this.playingNow === "W")
+            this.listOftakenWhitePieces.push(this.board[moveDetails.destination.file][moveDetails.destination.rank].peice)
+        else {
+            this.listOftakenBlackPieces.push(this.board[moveDetails.destination.file][moveDetails.destination.rank].peice)
+        }
+
+        let temp  = this.board[moveDetails.location.file][moveDetails.location.rank];
+        this.board[moveDetails.location.file][moveDetails.location.rank] = new Square(Empty , true);
+        this.board[moveDetails.destination.file][moveDetails.destination.rak] = temp;
+        console.log(this.board)
     }
 }
 

@@ -4,22 +4,30 @@ export default class Validator {
         // the next square accorfing to white or black  
         // console.log(Board , moveDetails);
         //console.log(Board.board[moveDetails.location.rank][moveDetails.location.file]);
+        // we make sure the the pwan is not pinned
+
+        let file = moveDetails.location.file;
+        let rank = moveDetails.destination.rank;
+        let peice = Board.board[file][rank].peice;
+        let isPinned = Board.listOfPinnedWhitePeices.includes(peice);
+        console.log(isPinned);
         let nextSquare;
         if (Board.playingNow === "W") {
 
             nextSquare = Board.board[moveDetails.location.rank + 1][moveDetails.destination.file];
+            console.log(nextSquare);
         } else {
 
             nextSquare = Board.board[moveDetails.location.rank - 1][moveDetails.destination.file];
+            console.log(nextSquare);
         }
 
         if(!nextSquare.empty) {
             console.log("wait wait where are you going next square is occupied");
-            return false;
         }
-        else {
-            return true;
-        }
+
+        return isPinned && nextSquare.empty
+        
     }
 
     static kingMovesValidator() {
