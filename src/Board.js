@@ -101,9 +101,9 @@ export default class Board{
 
         // is it just a move or move with capture
         if(!this.board[destination.file][destination.rank].empty) {
-            console.log("the square you want to go is not empty");
+            console.log(moveDetails);
             this.pawnCapture(moveDetails);
-            this.updateTheDOMBoard();
+            this.updateTheDOMBoard(moveDetails);
             this.updateTurns();
             return;
         }
@@ -183,8 +183,15 @@ export default class Board{
     };
 
     updateTheDOMBoard(moveDetails) {
-        document.querySelectorAll(`.rank-${moveDetails.location.rank + 1} .cell`)[moveDetails.location.file].innerHTML = ""
-        document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].innerHTML =  `${moveDetails.peiceType}`
+        document.querySelectorAll(`.rank-${moveDetails.location.rank + 1} .cell`)[moveDetails.location.file].innerHTML = "";
+        document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].innerHTML =  `${moveDetails.peiceType}`;
+        
+        if(this.playingNow === 'W') {
+            document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].classList.add('white-peice');
+        }else {
+
+            document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].classList.add('black-peice');
+        }
 
     }
     swapSquares(location , destination) {
@@ -210,6 +217,7 @@ export default class Board{
     }
 
     pawnCapture(moveDetails) {
+        console.log(moveDetails);
         // we add the peice taken to the array
         if(this.playingNow === "W")
             this.listOftakenWhitePieces.push(this.board[moveDetails.destination.file][moveDetails.destination.rank].peice)
@@ -217,9 +225,11 @@ export default class Board{
             this.listOftakenBlackPieces.push(this.board[moveDetails.destination.file][moveDetails.destination.rank].peice)
         }
 
-        let temp  = this.board[moveDetails.location.file][moveDetails.location.rank];
+
+
+        // this.board[moveDetails.destination.file][moveDetails.destination.rak] = this.board[moveDetails.location.file][moveDetails.location.rank];
+        this.swapSquares(moveDetails.location , moveDetails.destination)
         this.board[moveDetails.location.file][moveDetails.location.rank] = new Square(Empty , true);
-        this.board[moveDetails.destination.file][moveDetails.destination.rak] = temp;
         console.log(this.board)
     }
 }
