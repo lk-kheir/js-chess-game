@@ -96,8 +96,9 @@ export default class Board{
         location.file = ALPHABTIC.indexOf(location.file);
         destination.file = ALPHABTIC.indexOf(destination.file);
 
-        let validation = Validator.pawnMovesValidator(this, moveDetails) // boolean
-        console.log(validation);
+        //let validation = Validator.pawnMovesValidator(this, moveDetails) // boolean
+
+        //console.log(validation);
 
         // is it just a move or move with capture
         if(!this.board[destination.file][destination.rank].empty) {
@@ -109,7 +110,7 @@ export default class Board{
         }
 
         // we move the pawn one squre forward
-        if (Math.abs(destination.rank - location.rank) === 1 && validation) {
+        if (Math.abs(destination.rank - location.rank) === 1 /*&& validation*/) {
             this.swapSquares(location, destination)
             this.updateTheDOMBoard(moveDetails);;
             this.updateTurns();
@@ -187,9 +188,12 @@ export default class Board{
         document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].innerHTML =  `${moveDetails.peiceType}`;
         
         if(this.playingNow === 'W') {
+            
+            document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].classList.remove('black-peice');
             document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].classList.add('white-peice');
         }else {
 
+            document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].classList.remove('white-peice');
             document.querySelectorAll(`.rank-${moveDetails.destination.rank + 1} .cell`)[moveDetails.destination.file].classList.add('black-peice');
         }
 

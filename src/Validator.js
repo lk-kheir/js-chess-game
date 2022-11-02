@@ -7,8 +7,8 @@ export default class Validator {
         // we make sure the the pwan is not pinned
 
         let file = moveDetails.location.file;
-        let rank = moveDetails.destination.rank;
-        let peice = Board.board[file][rank].peice;
+        let rank = moveDetails.location.rank;
+        let peice = Board.board[rank][file].peice;
         let isPinned = Board.listOfPinnedWhitePeices.includes(peice);
         console.log(isPinned);
         let nextSquare;
